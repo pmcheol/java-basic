@@ -1,0 +1,8 @@
+helmet
+armor
+glove
+belt
+boots
+ring
+amulet
+shield
