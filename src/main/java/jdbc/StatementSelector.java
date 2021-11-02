@@ -6,10 +6,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class StatementSelector {
-    public static void main(String[] args) throws Exception {
-        Connection connection = null;
-        try {
-            connection = MysqlDriverConnector.connect();
+    public static void main(String[] args) {
+        try (Connection connection = MysqlDriverConnector.connect()) {
             Statement statement = connection.createStatement();
 
             ResultSet resultSet = statement.executeQuery("select id, name from user");
@@ -19,10 +17,6 @@ public class StatementSelector {
 
         } catch (Exception e) {
             e.printStackTrace();
-
-        } finally {
-            if (connection != null)
-                connection.close();
         }
     }
 
