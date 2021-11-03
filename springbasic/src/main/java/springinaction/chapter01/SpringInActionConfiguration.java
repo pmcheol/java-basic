@@ -16,4 +16,9 @@ public class SpringInActionConfiguration {
     public Knight knight() {
         return new DragonSlayer(quest());
     }
+
+    @Bean
+    public Minstrel minstrel() {
+        return new Minstrel(System.out);
+    }
 }
