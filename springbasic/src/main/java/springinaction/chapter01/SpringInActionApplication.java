@@ -9,5 +9,9 @@ public class SpringInActionApplication {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringInActionApplication.class);
         Knight knight = applicationContext.getBean(Knight.class);
         knight.talk();
+
+        UnitFinder unitFinder = applicationContext.getBean(UnitFinder.class);
+        Unit user = unitFinder.getUser(1);
+        System.out.println("user.getName() = " + user.getName());
     }
 }
