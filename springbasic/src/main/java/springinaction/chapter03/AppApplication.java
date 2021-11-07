@@ -9,5 +9,8 @@ public class AppApplication {
 
         ServiceLoader serviceLoader = applicationContext.getBean(ServiceLoader.class);
         serviceLoader.load();
+
+        RockBand rockBand = applicationContext.getBean(RockBand.class);
+        rockBand.echo();
     }
 }
