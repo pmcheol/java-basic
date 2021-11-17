@@ -1,6 +1,10 @@
 package springinaction.chapter04;
 
-import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 
 @Aspect
 public class Audience {
@@ -8,12 +12,21 @@ public class Audience {
     public void performancePerform() {
     }
 
-    @Before("performancePerform()")
+    @Around("performancePerform()")
+    public void around(ProceedingJoinPoint joinPoint) {
+        try {
+            takeSeats();
+            joinPoint.proceed();
+            applause();
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+    }
+
     public void takeSeats() {
         System.out.println("taking seats.");
     }
 
-    @AfterReturning("performancePerform()")
     public void applause() {
         System.out.println("CLAP! CLAP! CLAP!");
     }
