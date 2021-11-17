@@ -16,4 +16,9 @@ public class AppConfiguration {
     public Audience audience() {
         return new Audience();
     }
+
+    @Bean
+    public PerformanceRecorder performanceRecorder() {
+        return new PerformanceRecorder();
+    }
 }

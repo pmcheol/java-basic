@@ -9,5 +9,10 @@ public class AppApplication {
 
         Performance performance = applicationContext.getBean(Performance.class);
         performance.perform();
+
+        performance.play(1);
+        performance.play(2);
+        performance.play(3);
+        performance.play(2);
     }
 }
