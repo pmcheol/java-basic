@@ -21,4 +21,9 @@ public class AppConfiguration {
     public PerformanceRecorder performanceRecorder() {
         return new PerformanceRecorder();
     }
+
+    @Bean
+    public EncoreableIntroducer encoreableIntroducer() {
+        return new EncoreableIntroducer();
+    }
 }

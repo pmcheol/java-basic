@@ -14,5 +14,7 @@ public class AppApplication {
         performance.play(2);
         performance.play(3);
         performance.play(2);
+
+        ((Encoreable) performance).encore();
     }
 }
